@@ -25,10 +25,11 @@ class _SpalhscreenState extends State<Spalhscreen> {
       // ignore: use_build_context_synchronously
       context,
       PageRouteBuilder(
-        pageBuilder: (_, animation, secondaryAnimation) {
+        pageBuilder: (context, animation, secondaryAnimation) {
           return Navbarpage();
         },
-        transitionsBuilder: (_, animation, secondaryAnimation, child) {
+        transitionDuration: Duration(milliseconds: 700),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return FadeTransition(opacity: animation, child: child);
         },
       ),
