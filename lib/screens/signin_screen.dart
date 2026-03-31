@@ -29,7 +29,7 @@ class _SigninScreenState extends State<SigninScreen> {
           children: [
             SizedBox(height: 70.h),
             Image.asset(
-              'assets/images/icon.png',
+              'asset/icon.png',
               fit: BoxFit.cover,
               height: 100.h,
             ).animate().fadeIn(
@@ -298,7 +298,7 @@ class _SigninScreenState extends State<SigninScreen> {
                                 ),
                                 SizedBox(width: 12.h),
                                 Image.asset(
-                                  'assets/images/g.png',
+                                  'asset/g.png',
                                   fit: BoxFit.cover,
                                   width: 28.w,
                                   height: 28.h,

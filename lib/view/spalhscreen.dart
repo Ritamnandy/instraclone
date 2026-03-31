@@ -40,23 +40,18 @@ class _SpalhscreenState extends State<Spalhscreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child:
-            Image.asset(
-                  'assets/images/icon.png',
-                  fit: BoxFit.cover,
-                  height: 140.h,
-                )
-                .animate()
-                .fadeIn(
-                  delay: Duration(milliseconds: 900),
-                  curve: Curves.easeInCirc,
-                )
-                .slideY(
-                  end: 0,
-                  begin: 1,
-                  curve: Curves.easeIn,
-                  duration: Duration(milliseconds: 1800),
-                ),
+        child: Image.asset('asset/icon.png', fit: BoxFit.cover, height: 140.h)
+            .animate()
+            .fadeIn(
+              delay: Duration(milliseconds: 900),
+              curve: Curves.easeInCirc,
+            )
+            .slideY(
+              end: 0,
+              begin: 1,
+              curve: Curves.easeIn,
+              duration: Duration(milliseconds: 1800),
+            ),
       ),
     );
   }
