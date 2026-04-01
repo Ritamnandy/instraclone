@@ -22,6 +22,14 @@ class _SignupScreenState extends State<SignupScreen> {
   final emailcontroller = TextEditingController();
   bool _isvisible = false;
   @override
+  void dispose() {
+    super.dispose();
+    passwordcontroller.dispose();
+    emailcontroller.dispose();
+    confirmpss.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final auth = Provider.of<Authprovider>(context);
     return Scaffold(
@@ -200,8 +208,29 @@ class _SignupScreenState extends State<SignupScreen> {
                           email: emailcontroller.text.trim(),
                           password: passwordcontroller.text.trim(),
                         );
-
-                        Navigator.push(
+                        await Future.delayed(Duration(milliseconds: 300), () {
+                          showDialog(
+                            // ignore: use_build_context_synchronously
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                title: Center(
+                                  child: CircularProgressIndicator(
+                                    color: Colors.white,
+                                    strokeWidth: 4,
+                                  ),
+                                ),
+                                backgroundColor: Colors.transparent,
+                              );
+                              // ignore: use_build_context_synchronously
+                            },
+                          );
+                        });
+                        await Future.delayed(Duration(seconds: 3), () {
+                          // ignore: use_build_context_synchronously
+                          Navigator.pop(context);
+                        });
+                        Navigator.pushReplacement(
                           // ignore: use_build_context_synchronously
                           context,
                           PageRouteBuilder(
@@ -226,12 +255,30 @@ class _SignupScreenState extends State<SignupScreen> {
 
                         // ignore: use_build_context_synchronously
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('Well come this page')),
+                          SnackBar(
+                            content: Text(
+                              'Wellcome this page',
+                              style: GoogleFonts.abel(
+                                fontSize: 23.sp,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                            backgroundColor: const Color.fromARGB(
+                              181,
+                              76,
+                              175,
+                              79,
+                            ),
+                            duration: Duration(milliseconds: 1200),
+                            padding: const EdgeInsets.all(10),
+                          ),
                         );
                       }
 
                       passwordcontroller.clear();
                       emailcontroller.clear();
+                      confirmpss.clear();
                     },
                     child:
                         Container(

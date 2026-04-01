@@ -163,7 +163,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
 
                         for (int i = 0; i < 10; i++)
-                          SliverToBoxAdapter(child: Imagesview()),
+                          SliverToBoxAdapter(
+                            child: Imagesview().animate().fadeIn(
+                              duration: Duration(milliseconds: 600),
+                              curve: Curves.easeInCirc,
+                            ),
+                          ),
                       ],
                     ),
             ).animate()..fadeIn(

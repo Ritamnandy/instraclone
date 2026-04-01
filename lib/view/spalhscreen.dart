@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:instra_clone/provider/authprovider.dart';
+import 'package:instra_clone/screens/signin_screen.dart';
 
 import 'package:instra_clone/view/navbarpage.dart';
+import 'package:provider/provider.dart';
 
 class Spalhscreen extends StatefulWidget {
   const Spalhscreen({super.key});
@@ -14,6 +17,9 @@ class Spalhscreen extends StatefulWidget {
 class _SpalhscreenState extends State<Spalhscreen> {
   @override
   void initState() {
+    WidgetsBinding.instance.addPostFrameCallback(
+      (timeStamp) => context.read<Authprovider>().checkLoging(),
+    );
     _nextpage();
     super.initState();
   }
@@ -26,7 +32,11 @@ class _SpalhscreenState extends State<Spalhscreen> {
       context,
       PageRouteBuilder(
         pageBuilder: (context, animation, secondaryAnimation) {
-          return Navbarpage();
+          return Consumer<Authprovider>(
+            builder: (_, auth, _) {
+              return auth.isLoging ? Navbarpage() : SigninScreen();
+            },
+          );
         },
         transitionDuration: Duration(milliseconds: 700),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {

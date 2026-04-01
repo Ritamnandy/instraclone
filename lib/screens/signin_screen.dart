@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:instra_clone/provider/authprovider.dart';
 import 'package:instra_clone/screens/signup_screen.dart';
 import 'package:instra_clone/view/navbarpage.dart';
+
 import 'package:material_symbols_icons/material_symbols_icons.dart';
 import 'package:provider/provider.dart';
 
@@ -20,6 +21,13 @@ class _SigninScreenState extends State<SigninScreen> {
   final passwordcontroller = TextEditingController();
   final emailcontroller = TextEditingController();
   bool _isvisible = false;
+  @override
+  void dispose() {
+    super.dispose();
+    passwordcontroller.dispose();
+    emailcontroller.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final auth = Provider.of<Authprovider>(context);
@@ -186,38 +194,95 @@ class _SigninScreenState extends State<SigninScreen> {
                   InkWell(
                     onTap: () async {
                       if (_fromkey.currentState!.validate()) {
-                        await auth.signIn(
+                        final status = await auth.signIn(
                           passwordcontroller.text.trim(),
                           emailcontroller.text.trim(),
                         );
-
-                        Navigator.push(
+                        if (status) {
+                          await Future.delayed(Duration(milliseconds: 300), () {
+                            showDialog(
+                              // ignore: use_build_context_synchronously
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                  title: Center(
+                                    child: CircularProgressIndicator(
+                                      color: Colors.white,
+                                      strokeWidth: 4,
+                                    ),
+                                  ),
+                                  backgroundColor: Colors.transparent,
+                                );
+                                // ignore: use_build_context_synchronously
+                              },
+                            );
+                          });
+                          await Future.delayed(Duration(seconds: 3), () {
+                            // ignore: use_build_context_synchronously
+                            Navigator.pop(context);
+                          });
+                          Navigator.pushReplacement(
+                            // ignore: use_build_context_synchronously
+                            context,
+                            PageRouteBuilder(
+                              pageBuilder:
+                                  (context, animation, secondaryAnimation) {
+                                    return Navbarpage();
+                                  },
+                              transitionsBuilder:
+                                  (
+                                    context,
+                                    animation,
+                                    secondaryAnimation,
+                                    child,
+                                  ) {
+                                    return FadeTransition(
+                                      opacity: animation,
+                                      child: child,
+                                    );
+                                  },
+                            ),
+                          );
+                        } else {
+                          await Future.delayed(Duration(milliseconds: 300), () {
+                            showDialog(
+                              // ignore: use_build_context_synchronously
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                  title: Center(
+                                    child: CircularProgressIndicator(
+                                      color: Colors.white,
+                                      strokeWidth: 4,
+                                    ),
+                                  ),
+                                  backgroundColor: Colors.transparent,
+                                );
+                                // ignore: use_build_context_synchronously
+                              },
+                            );
+                          });
+                          await Future.delayed(Duration(seconds: 3), () {
+                            // ignore: use_build_context_synchronously
+                            Navigator.pop(context);
+                          });
                           // ignore: use_build_context_synchronously
-                          context,
-                          PageRouteBuilder(
-                            pageBuilder:
-                                (context, animation, secondaryAnimation) {
-                                  return Navbarpage();
-                                },
-                            transitionsBuilder:
-                                (
-                                  context,
-                                  animation,
-                                  secondaryAnimation,
-                                  child,
-                                ) {
-                                  return FadeTransition(
-                                    opacity: animation,
-                                    child: child,
-                                  );
-                                },
-                          ),
-                        );
-
-                        // ignore: use_build_context_synchronously
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('Sign in faild')),
-                        );
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                'Sign in failed,acount not found',
+                                style: GoogleFonts.abel(
+                                  fontSize: 23.sp,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              backgroundColor: Colors.redAccent,
+                              duration: Duration(seconds: 3),
+                              padding: const EdgeInsets.all(10),
+                            ),
+                          );
+                        }
                       }
                       passwordcontroller.clear();
                       emailcontroller.clear();
