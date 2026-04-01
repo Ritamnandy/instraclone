@@ -3,7 +3,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:instra_clone/page/skeletonuihome.dart';
+import 'package:instra_clone/modal/skeletonuihome.dart';
 import 'package:instra_clone/view/imagesview.dart';
 
 class HomeScreen extends StatefulWidget {
