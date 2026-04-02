@@ -60,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               Text(
                                 'Instagram',
                                 style: GoogleFonts.marckScript(
-                                  fontSize: 33.sp,
+                                  fontSize: 35.sp,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ).animate()..fadeIn(

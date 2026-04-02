@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:instra_clone/provider/authprovider.dart';
 import 'package:instra_clone/screens/signin_screen.dart';
 
@@ -49,18 +49,13 @@ class _SpalhscreenState extends State<Spalhscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Center(
-        child: Image.asset('asset/icon.png', fit: BoxFit.cover, height: 140.h)
+        child: Image.asset('asset/splash.png', fit: BoxFit.fill)
             .animate()
             .fadeIn(
-              delay: Duration(milliseconds: 900),
-              curve: Curves.easeInCirc,
-            )
-            .slideY(
-              end: 0,
-              begin: 1,
-              curve: Curves.easeIn,
-              duration: Duration(milliseconds: 1800),
+              delay: Duration(milliseconds: 1800),
+              curve: Curves.easeInOut,
             ),
       ),
     );
