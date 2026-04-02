@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:instra_clone/provider/authprovider.dart';
 import 'package:instra_clone/screens/signin_screen.dart';
@@ -20,12 +21,14 @@ class _SignupScreenState extends State<SignupScreen> {
   final passwordcontroller = TextEditingController();
   final confirmpss = TextEditingController();
   final emailcontroller = TextEditingController();
+  final namecontroller = TextEditingController();
   bool _isvisible = false;
   @override
   void dispose() {
     super.dispose();
     passwordcontroller.dispose();
     emailcontroller.dispose();
+    namecontroller.dispose();
     confirmpss.dispose();
   }
 
@@ -36,7 +39,7 @@ class _SignupScreenState extends State<SignupScreen> {
       body: Center(
         child: Column(
           children: [
-            SizedBox(height: 151.h),
+            SizedBox(height: 130.h),
             Form(
               key: _fromkey,
               child: Column(
@@ -44,7 +47,53 @@ class _SignupScreenState extends State<SignupScreen> {
                   Container(
                     margin: EdgeInsets.symmetric(
                       horizontal: 35.w,
-                      vertical: 10.h,
+                      vertical: 8.h,
+                    ),
+                    child: TextFormField(
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Name is required';
+                        }
+
+                        return null;
+                      },
+                      style: TextStyle(fontSize: 18.sp),
+                      controller: namecontroller,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15).r,
+                          borderSide: BorderSide(width: 2),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15).r,
+                          borderSide: BorderSide(width: 1, color: Colors.white),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15).r,
+                          borderSide: BorderSide(
+                            width: 1.5,
+                            color: Colors.white,
+                          ),
+                        ),
+                        suffixIcon: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: FaIcon(FontAwesomeIcons.solidUser, size: 20),
+                        ),
+                        hint: Text(
+                          'Enter name',
+                          style: GoogleFonts.abel(fontSize: 18.sp),
+                        ),
+                      ),
+                    ),
+                  ).animate().fadeIn(
+                    duration: Duration(milliseconds: 1300),
+                    curve: Curves.easeInCirc,
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(
+                      horizontal: 35.w,
+                      vertical: 8.h,
                     ),
                     child: TextFormField(
                       autovalidateMode: AutovalidateMode.onUserInteraction,

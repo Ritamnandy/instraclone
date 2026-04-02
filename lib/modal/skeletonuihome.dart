@@ -47,12 +47,12 @@ class Skeletonuihome extends StatelessWidget {
             itemCount: 10,
             itemBuilder: (context, index) {
               return Shimmer.fromColors(
-                baseColor: Colors.grey.shade100,
-                highlightColor: Colors.grey.shade500,
+                baseColor: Colors.grey.shade200,
+                highlightColor: Colors.grey.shade400,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: CircleAvatar(
-                    backgroundColor: Colors.black38,
+                    backgroundColor: Colors.black12,
                     radius: 60,
                   ),
                 ),
@@ -62,21 +62,21 @@ class Skeletonuihome extends StatelessWidget {
         ),
         for (int i = 0; i < 10; i++)
           Shimmer.fromColors(
-            baseColor: Colors.grey.shade100,
-            highlightColor: Colors.grey.shade500,
+            baseColor: Colors.grey.shade200,
+            highlightColor: Colors.grey.shade400,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
                   Row(
                     children: [
-                      CircleAvatar(radius: 35, backgroundColor: Colors.black38),
+                      CircleAvatar(radius: 35, backgroundColor: Colors.black12),
                       SizedBox(width: 12.w),
                       Container(
                         height: 30.h,
                         width: 240.w,
                         decoration: BoxDecoration(
-                          color: Colors.black38,
+                          color: Colors.black12,
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
@@ -88,7 +88,7 @@ class Skeletonuihome extends StatelessWidget {
                     height: 350.h,
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
-                      color: Colors.black38,
+                      color: Colors.black12,
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
