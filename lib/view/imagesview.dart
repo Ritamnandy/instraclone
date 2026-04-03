@@ -4,7 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Imagesview extends StatelessWidget {
-  const Imagesview({super.key});
+  final String imgurl;
+  const Imagesview({super.key, required this.imgurl});
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +41,10 @@ class Imagesview extends StatelessWidget {
             height: 370.h,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-              color: Colors.white10,
-              borderRadius: BorderRadius.circular(10),
+              image: DecorationImage(
+                image: NetworkImage(imgurl),
+                fit: BoxFit.fill,
+              ),
             ),
           ),
           Row(

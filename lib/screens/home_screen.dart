@@ -4,7 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:instra_clone/modal/skeletonuihome.dart';
+import 'package:instra_clone/provider/imageprovider.dart';
 import 'package:instra_clone/view/imagesview.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,22 +16,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  bool x = true;
   @override
   void initState() {
-    _loding();
     super.initState();
-  }
-
-  Future<void> _loding() async {
-    await Future.delayed(Duration(seconds: 2));
-    setState(() {
-      x = false;
-    });
+    WidgetsBinding.instance.addPostFrameCallback(
+      (timeStamp) => context.read<Imageprovider>().getImage(),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
+    final fetchusers = Provider.of<Imageprovider>(context);
     return SafeArea(
       bottom: false,
       left: false,
@@ -38,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
         body:
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: x
+              child: fetchusers.data.isEmpty || fetchusers.isloding
                   ? Skeletonuihome()
                   : CustomScrollView(
                       slivers: [
@@ -162,16 +159,21 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
 
-                        for (int i = 0; i < 10; i++)
+                        for (int i = 0; i < fetchusers.data.length; i++)
                           SliverToBoxAdapter(
-                            child: Imagesview().animate().fadeIn(
-                              duration: Duration(milliseconds: 600),
-                              curve: Curves.easeInCirc,
-                            ),
+                            child:
+                                Imagesview(
+                                  imgurl: fetchusers
+                                      .data['photos'][i]['src']['large']
+                                      .toString(),
+                                ).animate().fadeIn(
+                                  duration: Duration(milliseconds: 600),
+                                  curve: Curves.easeInCirc,
+                                ),
                           ),
                       ],
                     ),
-            ).animate()..fadeIn(
+            ).animate().fadeIn(
               duration: Duration(milliseconds: 600),
               curve: Curves.easeInCirc,
             ),

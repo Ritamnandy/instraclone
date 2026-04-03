@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:instra_clone/provider/authprovider.dart';
+import 'package:instra_clone/provider/imageprovider.dart';
+import 'package:instra_clone/provider/randomimages.dart';
+import 'package:instra_clone/provider/randomuser.dart';
 import 'package:instra_clone/services/authservice.dart';
 
 import 'package:instra_clone/view/spalhscreen.dart';
@@ -11,7 +14,12 @@ void main() async {
   await Authservice.instance.getSharePref();
   runApp(
     MultiProvider(
-      providers: [ChangeNotifierProvider(create: (context) => Authprovider())],
+      providers: [
+        ChangeNotifierProvider(create: (context) => Authprovider()),
+        ChangeNotifierProvider(create: (context) => Randomuser()),
+        ChangeNotifierProvider(create: (context) => Randomimages()),
+        ChangeNotifierProvider(create: (context) => Imageprovider()),
+      ],
       child: const MyApp(),
     ),
   );
