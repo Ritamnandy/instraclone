@@ -22,13 +22,13 @@ class Imagesview extends StatelessWidget {
               CircleAvatar(radius: 32, backgroundColor: Colors.white),
               SizedBox(width: 8.w),
               Text(
-                'Ritam nandy',
+                'User',
                 style: GoogleFonts.abel(
                   fontSize: 20.sp,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(width: 162.w),
+              SizedBox(width: 212.w),
               FaIcon(
                 FontAwesomeIcons.ellipsisVertical,
                 size: 26.sp,
@@ -39,14 +39,17 @@ class Imagesview extends StatelessWidget {
           SizedBox(height: 7.h),
           Container(
             height: 370.h,
+            clipBehavior: Clip.antiAlias,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
               image: DecorationImage(
                 image: NetworkImage(imgurl),
                 fit: BoxFit.fill,
               ),
             ),
           ),
+          SizedBox(height: 14.h),
           Row(
             children: [
               FaIcon(
@@ -55,9 +58,9 @@ class Imagesview extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.only(left: 10, right: 10),
                 child: Text(
-                  '33.3k',
+                  '1',
                   style: GoogleFonts.abel(
                     fontSize: 15.sp,
                     fontWeight: FontWeight.bold,
@@ -70,9 +73,9 @@ class Imagesview extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
               Padding(
-                padding: const EdgeInsets.all(5.0),
+                padding: const EdgeInsets.only(left: 10, right: 10),
                 child: Text(
-                  '33.3k',
+                  '1',
                   style: GoogleFonts.abel(
                     fontSize: 15.sp,
                     fontWeight: FontWeight.bold,
@@ -85,9 +88,9 @@ class Imagesview extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
               Padding(
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.only(left: 10, right: 10),
                 child: Text(
-                  '33.3k',
+                  '1',
                   style: GoogleFonts.abel(
                     fontSize: 15.sp,
                     fontWeight: FontWeight.bold,
@@ -100,16 +103,16 @@ class Imagesview extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 5).w,
+                padding: const EdgeInsets.only(left: 10, right: 10),
                 child: Text(
-                  '33.3k',
+                  '1',
                   style: GoogleFonts.abel(
                     fontSize: 15.sp,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-              SizedBox(width: 50.w),
+              SizedBox(width: 106.w),
               FaIcon(
                 FontAwesomeIcons.bookmark,
                 size: 22.sp,
@@ -119,12 +122,12 @@ class Imagesview extends StatelessWidget {
           ),
 
           Padding(
-            padding: const EdgeInsets.only(left: 3),
+            padding: const EdgeInsets.only(left: 3, top: 1),
             child: Text(
-              'uweguiwegweuigweui',
+              'description',
               textAlign: TextAlign.start,
               style: GoogleFonts.abel(
-                fontSize: 17.sp,
+                fontSize: 19.sp,
                 fontWeight: FontWeight.bold,
               ),
             ),

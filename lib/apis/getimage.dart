@@ -3,18 +3,12 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class Getimage {
-  Future<Map<String, dynamic>> fetchImage() async {
+  Future<List<dynamic>> fetchImage() async {
     try {
       final url =
-          'https://api.pexels.com/v1/search?query=nature&per_page=30&page=1';
+          'https://api.unsplash.com/photos/random?query=india&count=60&client_id=EanJ_j6KjLbre60HIqeLuhBZ3ujx2ivqHvQjMtK44fA';
       final uri = Uri.parse(url);
-      final response = await http.get(
-        uri,
-        headers: {
-          'Authorization':
-              "tuIEpIRfhTbkT6SRvjKmhcXJxSYkr1mQyUTBu5kHMnacSX31dR5XJXid",
-        },
-      );
+      final response = await http.get(uri);
       if (response.statusCode == 200) {
         final body = response.body;
         final json = jsonDecode(body);

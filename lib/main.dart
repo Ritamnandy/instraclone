@@ -4,8 +4,8 @@ import 'package:instra_clone/provider/authprovider.dart';
 import 'package:instra_clone/provider/imageprovider.dart';
 import 'package:instra_clone/provider/randomimages.dart';
 import 'package:instra_clone/provider/randomuser.dart';
+import 'package:instra_clone/provider/videpovider.dart';
 import 'package:instra_clone/services/authservice.dart';
-
 import 'package:instra_clone/view/spalhscreen.dart';
 import 'package:provider/provider.dart';
 
@@ -19,6 +19,7 @@ void main() async {
         ChangeNotifierProvider(create: (context) => Randomuser()),
         ChangeNotifierProvider(create: (context) => Randomimages()),
         ChangeNotifierProvider(create: (context) => Imageprovider()),
+        ChangeNotifierProvider(create: (context) => Videpovider()),
       ],
       child: const MyApp(),
     ),

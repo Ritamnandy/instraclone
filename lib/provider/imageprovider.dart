@@ -6,8 +6,8 @@ class Imageprovider extends ChangeNotifier {
   final users = Getimage();
 
   bool _islodding = true;
-  Map<String, dynamic> _data = {};
-  Map<String, dynamic> get data => _data;
+  List<dynamic> _data = [];
+  List<dynamic> get data => _data;
   bool get isloding => _islodding;
   Future<void> getImage() async {
     try {

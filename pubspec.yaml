@@ -42,10 +42,11 @@ dependencies:
   http: ^1.6.0
   flutter_animate: ^4.5.2
   curved_labeled_navigation_bar: ^2.0.6
-  cached_network_image: ^3.4.1
   font_awesome_flutter: ^11.0.0
   shared_preferences: ^2.5.5
   liquid_pull_to_refresh: ^3.0.1
+  video_player: ^2.11.1
+
 
 dev_dependencies:
   flutter_test:
