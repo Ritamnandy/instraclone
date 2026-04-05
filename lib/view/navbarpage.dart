@@ -53,7 +53,13 @@ class _NavbarpageState extends State<Navbarpage> {
           CurvedNavigationBarItem(
             child: FaIcon(FontAwesomeIcons.magnifyingGlass, size: 30.sp),
           ),
-          CurvedNavigationBarItem(child: CircleAvatar()),
+          CurvedNavigationBarItem(
+            child: CircleAvatar(
+              radius: 20,
+              backgroundImage: AssetImage('asset/man.png'),
+              backgroundColor: Colors.transparent,
+            ),
+          ),
         ],
       ),
     );
