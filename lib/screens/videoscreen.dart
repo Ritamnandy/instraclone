@@ -40,7 +40,7 @@ class _VideoscreenState extends State<Videoscreen> {
             : SafeArea(
                 bottom: false,
                 child: PageView.builder(
-                  itemCount: fetchvideos.data['videos'].length,
+                  itemCount: fetchvideos.data['hits'].length,
                   onPageChanged: (value) {
                     setState(() {
                       currentindex = value;
@@ -52,7 +52,7 @@ class _VideoscreenState extends State<Videoscreen> {
                     return Playvideo(
                       isactive: index == currentindex,
                       playurl: fetchvideos
-                          .data['videos'][index]['video_files'][0]['link'],
+                          .data['hits'][index]['videos']['small']['url'],
                     );
                   },
                 ),

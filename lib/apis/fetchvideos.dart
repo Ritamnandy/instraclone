@@ -1,19 +1,17 @@
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:http/http.dart' as http;
 
 class Fetchvideos {
+  final _random = Random();
   Future<Map<String, dynamic>> fetchVideos() async {
     try {
-      final url = 'https://api.pexels.com/videos/popular?per_page=50';
+      final page = getnumber();
+      final url =
+          'https://pixabay.com/api/videos/?key=55313763-86870444cf2ddd063f8cda7dc&per_page=50&page=$page';
       final uri = Uri.parse(url);
-      final response = await http.get(
-        uri,
-        headers: {
-          "Authorization":
-              "tuIEpIRfhTbkT6SRvjKmhcXJxSYkr1mQyUTBu5kHMnacSX31dR5XJXid",
-        },
-      );
+      final response = await http.get(uri);
       if (response.statusCode == 200) {
         final body = response.body;
         final json = jsonDecode(body);
@@ -24,5 +22,9 @@ class Fetchvideos {
     } catch (e) {
       throw 'error';
     }
+  }
+
+  int getnumber() {
+    return _random.nextInt(10) + 1;
   }
 }
