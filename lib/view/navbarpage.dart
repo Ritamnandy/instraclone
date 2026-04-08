@@ -33,7 +33,7 @@ class _NavbarpageState extends State<Navbarpage> {
         color: Colors.black,
         backgroundColor: Colors.transparent,
 
-        height: 50.sp,
+        height: 45.sp,
         onTap: (value) {
           setState(() {
             _index = value;
@@ -41,21 +41,21 @@ class _NavbarpageState extends State<Navbarpage> {
         },
         items: [
           CurvedNavigationBarItem(
-            child: FaIcon(FontAwesomeIcons.solidHouse, size: 30.sp),
+            child: FaIcon(FontAwesomeIcons.solidHouse, size: 25.sp),
           ),
 
           CurvedNavigationBarItem(
-            child: FaIcon(FontAwesomeIcons.solidCirclePlay, size: 30.sp),
+            child: FaIcon(FontAwesomeIcons.solidCirclePlay, size: 25.sp),
           ),
           CurvedNavigationBarItem(
-            child: FaIcon(FontAwesomeIcons.solidPaperPlane, size: 28.sp),
+            child: FaIcon(FontAwesomeIcons.solidPaperPlane, size: 25.sp),
           ),
           CurvedNavigationBarItem(
-            child: FaIcon(FontAwesomeIcons.magnifyingGlass, size: 30.sp),
+            child: FaIcon(FontAwesomeIcons.magnifyingGlass, size: 25.sp),
           ),
           CurvedNavigationBarItem(
             child: CircleAvatar(
-              radius: 20,
+              radius: 18,
               backgroundImage: AssetImage('asset/man.png'),
               backgroundColor: Colors.transparent,
             ),

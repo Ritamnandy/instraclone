@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp(
-          title: 'Flutter Demo',
+          title: 'Insta clone',
           debugShowCheckedModeBanner: false,
           theme: ThemeData.dark(),
           home: Spalhscreen(),

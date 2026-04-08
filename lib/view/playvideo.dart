@@ -49,6 +49,7 @@ class _PlayvideoState extends State<Playvideo> {
               : _controller.play();
         });
       },
+
       child: GestureDetector(
         onDoubleTap: () async {
           setState(() {

@@ -11,15 +11,20 @@ class Imagesview extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(5),
-      margin: EdgeInsets.only(bottom: 30).h,
-      height: 490.h,
+      // margin: EdgeInsets.only(bottom: 10).h,
+      height: 510.h,
       width: MediaQuery.of(context).size.width,
+
       child: Column(
         crossAxisAlignment: .start,
         children: [
           Row(
             children: [
-              CircleAvatar(radius: 32, backgroundColor: Colors.white),
+              CircleAvatar(
+                radius: 22,
+                backgroundImage: AssetImage('asset/man.png'),
+                backgroundColor: Colors.black12,
+              ),
               SizedBox(width: 8.w),
               Text(
                 'User',
@@ -28,7 +33,7 @@ class Imagesview extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(width: 212.w),
+              SizedBox(width: 232.w),
               FaIcon(
                 FontAwesomeIcons.ellipsisVertical,
                 size: 26.sp,
@@ -38,7 +43,7 @@ class Imagesview extends StatelessWidget {
           ),
           SizedBox(height: 7.h),
           Container(
-            height: 370.h,
+            height: 390.h,
             clipBehavior: Clip.antiAlias,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(

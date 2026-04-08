@@ -47,7 +47,7 @@ class _VideoscreenState extends State<Videoscreen> {
                     });
                   },
                   scrollDirection: Axis.vertical,
-                  scrollBehavior: ScrollBehavior(),
+                  scrollBehavior: MaterialScrollBehavior(),
                   itemBuilder: (context, index) {
                     return Playvideo(
                       isactive: index == currentindex,

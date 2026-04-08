@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               child:
                                   FaIcon(
                                     FontAwesomeIcons.plus,
-                                    size: 28.sp,
+                                    size: 24.sp,
                                     fontWeight: FontWeight.bold,
                                   ).animate()..fadeIn(
                                     duration: Duration(milliseconds: 600),
@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Text(
                                   'Instagram',
                                   style: GoogleFonts.marckScript(
-                                    fontSize: 35.sp,
+                                    fontSize: 30.sp,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ).animate()..fadeIn(
@@ -81,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     FaIcon(
                                       FontAwesomeIcons.heart,
                                       fontWeight: FontWeight.bold,
-                                      size: 28.sp,
+                                      size: 24.sp,
                                     ).animate()..fadeIn(
                                       duration: Duration(milliseconds: 600),
                                       curve: Curves.easeInCirc,
@@ -92,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                           SliverToBoxAdapter(
                             child: SizedBox(
-                              height: 100.h,
+                              height: 75.h,
                               child: ListView.builder(
                                 itemCount: 10,
                                 scrollDirection: Axis.horizontal,
@@ -101,9 +101,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                     onTap: () {},
                                     child:
                                         Container(
-                                          margin: EdgeInsets.all(10),
-                                          height: 95.h,
-                                          width: 95.w,
+                                          margin: EdgeInsets.all(5),
+                                          height: 85.h,
+                                          width: 85.w,
                                           padding: const EdgeInsets.all(
                                             3,
                                           ).w, // outer ring thickness

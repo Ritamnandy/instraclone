@@ -25,7 +25,7 @@ class _SpalhscreenState extends State<Spalhscreen> {
   }
 
   Future<void> _nextpage() async {
-    await Future.delayed(Duration(seconds: 4));
+    await Future.delayed(Duration(seconds: 3));
     if (!mounted) return;
     Navigator.pushReplacement(
       // ignore: use_build_context_synchronously

@@ -91,8 +91,8 @@ class _SharescreenState extends State<Sharescreen> {
                     ),
                   ),
                   Container(
-                    height: 120.h,
-                    padding: EdgeInsets.only(left: 4.w),
+                    height: 90.h,
+                    padding: EdgeInsets.only(left: 6.w, right: 6.w),
                     child: ListView.builder(
                       itemCount: 10,
                       scrollDirection: Axis.horizontal,
@@ -100,7 +100,7 @@ class _SharescreenState extends State<Sharescreen> {
                         return Padding(
                           padding: EdgeInsets.only(left: 4.w),
                           child: CircleAvatar(
-                            radius: 60,
+                            radius: 40,
                             backgroundColor: Colors.grey.shade800,
                             backgroundImage: NetworkImage(
                               fetchusers
